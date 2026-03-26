@@ -1,0 +1,433 @@
+{
+  "info": {
+    "_postman_id": "2b31dfda-38f6-48c4-b64e-86971475cdd5",
+    "name": "MBA",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "52580069",
+    "_collection_link": "https://go.postman.co/collection/52580069-2b31dfda-38f6-48c4-b64e-86971475cdd5?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Auth",
+      "item": [
+        {
+          "name": "Login",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"loginId\": \"admin1234\",\r\n  \"password\": \"Admin@1234\"\r\n}\r\n\r\n// {\r\n//     \"loginId\": \"0987654321\",\r\n//   \"password\": \"Srikanth@12345\"\r\n// }",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{httpoClient}}{{Baseurl}}/login",
+              "host": [
+                "{{httpoClient}}{{Baseurl}}"
+              ],
+              "path": [
+                "login"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Forgot",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{httpoClient}}{{Baseurl}}/forgot?email=0987654321&newPassword=Srikanth@12345",
+              "host": [
+                "{{httpoClient}}{{Baseurl}}"
+              ],
+              "path": [
+                "forgot"
+              ],
+              "query": [
+                {
+                  "key": "email",
+                  "value": "0987654321"
+                },
+                {
+                  "key": "newPassword",
+                  "value": "Srikanth@12345"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Register",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyIiwiaWF0IjoxNzczNzM0MjUxLCJleHAiOjE3NzM3MzYwNTF9.Xp7KC2EvIrEGKEfwHJXEMvgf1BM4CEsSaC7KqRCzx10",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"firstName\": \"shiva\",\r\n  \"lastName\": \"rangu\",\r\n  \"email\": \"srede@gmail.com\",\r\n  \"loginId\": \"12345678911\",\r\n  \"password\": \"Shiv@1234\",\r\n  \"confirmPassword\":\"Shiv@1234\",\r\n  \"contactNumber\": \"9876543210\"\r\n}\r\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{httpoClient}}{{Baseurl}}/register",
+              "host": [
+                "{{httpoClient}}{{Baseurl}}"
+              ],
+              "path": [
+                "register"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Admin",
+      "item": [
+        {
+          "name": "uploadMovie",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbjEyMzQiLCJyb2xlIjoiUk9MRV9BRE1JTiIsImlhdCI6MTc3NDA5MDk3MywiZXhwIjoxNzc0MDk0NTczfQ.bevpkgDgxz6xQRnzygzDkKiOcwUCJLMliEnhHbnN9uE",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"movieName\": \"bahubali\",\r\n  \"theatreName\": \"PVR\",\r\n  \"totalTickets\": 20\r\n}\r\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{httpoClient}}{{Baseurl}}/addMovie",
+              "host": [
+                "{{httpoClient}}{{Baseurl}}"
+              ],
+              "path": [
+                "addMovie"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "delete movie",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbjEyMzQiLCJyb2xlIjoiUk9MRV9BRE1JTiIsImlhdCI6MTc3NDAxOTg4NiwiZXhwIjoxNzc0MDIzNDg2fQ.ACVSPB6t1UHUa9j3TnIi9TMyBEpxXCt583yU7VAxsa4",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{httpoClient}}{{Baseurl}}/Bahubali/delete/Allu Cinemas",
+              "host": [
+                "{{httpoClient}}{{Baseurl}}"
+              ],
+              "path": [
+                "Bahubali",
+                "delete",
+                "Allu Cinemas"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "sold out",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{httpoClient}}{{Baseurl}}/sold/RRr/Inox",
+              "host": [
+                "{{httpoClient}}{{Baseurl}}"
+              ],
+              "path": [
+                "sold",
+                "RRr",
+                "Inox"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "View All By admin",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbjEyMzQiLCJyb2xlIjoiUk9MRV9BRE1JTiIsImlhdCI6MTc3NDA5MDk3MywiZXhwIjoxNzc0MDk0NTczfQ.bevpkgDgxz6xQRnzygzDkKiOcwUCJLMliEnhHbnN9uE",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"loginId\": \"admin1234\",\r\n  \"password\": \"Admin@1234\"\r\n}\r\n\r\n// {\r\n//     \"loginId\": \"1234567890\",\r\n//   \"password\": \"Shiv@12342\"\r\n// }"
+            },
+            "url": {
+              "raw": "{{httpoClient}}{{Baseurl}}/all",
+              "host": [
+                "{{httpoClient}}{{Baseurl}}"
+              ],
+              "path": [
+                "all"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "UpdateStatus",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbjEyMzQiLCJyb2xlIjoiUk9MRV9BRE1JTiIsImlhdCI6MTc3NDA5MDk3MywiZXhwIjoxNzc0MDk0NTczfQ.bevpkgDgxz6xQRnzygzDkKiOcwUCJLMliEnhHbnN9uE",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"movieName\": \"bahubali\",\r\n  \"theatreName\": \"PVR\",\r\n  \"totalTickets\": 20\r\n}\r\n"
+            },
+            "url": {
+              "raw": "{{httpoClient}}{{Baseurl}}/updateStatus/bahubali/PVR?status=BOOK_ASAP",
+              "host": [
+                "{{httpoClient}}{{Baseurl}}"
+              ],
+              "path": [
+                "updateStatus",
+                "bahubali",
+                "PVR"
+              ],
+              "query": [
+                {
+                  "key": "status",
+                  "value": "BOOK_ASAP"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "User",
+      "item": [
+        {
+          "name": "BookTicket",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxMjM0NTY3ODkxMSIsInJvbGUiOiJST0xFX1VTRVIiLCJpYXQiOjE3NzM5MjI5MTMsImV4cCI6MTc3MzkyNjUxM30.8iwZ1FstlA4-PTc6Ivqfm14j72qxxYHwqjIJNpMNjBQ",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"movieName\": \"Nag\",\r\n  \"theatreName\": \"PVR\",\r\n  \"numberOfTickets\": 1,\r\n  \"seatNumbers\": [\"A1\"]\r\n}\r\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{httpoClient}}{{Baseurl}}/book",
+              "host": [
+                "{{httpoClient}}{{Baseurl}}"
+              ],
+              "path": [
+                "book"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "View-all",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxMjM0NTY3ODkxMSIsInJvbGUiOiJST0xFX1VTRVIiLCJpYXQiOjE3NzQwOTEzNDEsImV4cCI6MTc3NDA5NDk0MX0.Cv9cc29J7Wm3khYzD9_T29DjVUN3eSieB4feua5LzF0",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"loginId\": \"admin1234\",\r\n  \"password\": \"Admin@1234\"\r\n}\r\n\r\n// {\r\n//     \"loginId\": \"1234567890\",\r\n//   \"password\": \"Shiv@12342\"\r\n// }"
+            },
+            "url": {
+              "raw": "{{httpoClient}}{{Baseurl}}/all",
+              "host": [
+                "{{httpoClient}}{{Baseurl}}"
+              ],
+              "path": [
+                "all"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Search By movie",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxMjM0NTY3ODkxMSIsInJvbGUiOiJST0xFX1VTRVIiLCJpYXQiOjE3NzM5MjI5MTMsImV4cCI6MTc3MzkyNjUxM30.8iwZ1FstlA4-PTc6Ivqfm14j72qxxYHwqjIJNpMNjBQ",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{httpoClient}}{{Baseurl}}/movies/search/Nag",
+              "host": [
+                "{{httpoClient}}{{Baseurl}}"
+              ],
+              "path": [
+                "movies",
+                "search",
+                "Nag"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "View-bookings",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxMjM0NTY3ODkxMSIsInJvbGUiOiJST0xFX1VTRVIiLCJpYXQiOjE3NzM5MjUwOTAsImV4cCI6MTc3MzkyODY5MH0.FrQ29LSllpCxcTGjiXph9M2FErzMdLEJm7i0Rdqqkx0",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{httpoClient}}{{Baseurl}}/view/booking",
+              "host": [
+                "{{httpoClient}}{{Baseurl}}"
+              ],
+              "path": [
+                "view",
+                "booking"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}
