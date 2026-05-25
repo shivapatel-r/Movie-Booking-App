@@ -1,5 +1,5 @@
 export const API_ENDPOINTS = {
-  BASE: 'http://localhost:8080/api/v1.0/moviebooking',
+  BASE: 'https://movie-booking-backend-2-i5ap.onrender.com/api/v1.0/moviebooking',
 
   AUTH: {
     LOGIN: '/login',
